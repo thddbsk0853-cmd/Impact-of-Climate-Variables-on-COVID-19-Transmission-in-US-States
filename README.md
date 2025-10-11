@@ -75,16 +75,17 @@ Preprocessing steps and code are fully detailed in the notebook.
 ## Visualization
 
 ### 1. Feature Importance by Category
-![Feature Importance by Category](Feature%20Importance%20by%20Category.png)
+![Feature Importance by Category](Impact-of-Climate-Variables-on-COVID-19-Transmission-in-US-States/figures/Feature%20Importance%20by%20Category.png)
 
 ### 2. COVID-19 Cases and Key Intervention Points
-![COVID-19 Cases and Key Intervention Points](COVID-19%20Cases%20and%20Key%20Intervention%20Points.png)
+![COVID-19 Cases and Key Intervention Points](Impact-of-Climate-Variables-on-COVID-19-Transmission-in-US-States/figures/COVID-19%20Cases%20and%20Key%20Intervention%20Points.png)
 
 ### 3. Top 6 Features Partial Dependence
-![Top 6 Features PDP](Top%206%20Features%20PDP.png)
+![Top 6 Features PDP](Impact-of-Climate-Variables-on-COVID-19-Transmission-in-US-States/figures/Top%206%20Features%20PDP.png)
 
 ### 4. Ablation Study Comparison
-![Ablation Study Comparison](Ablation%20Study%20Comparison.png)
+![Ablation Study Comparison](Impact-of-Climate-Variables-on-COVID-19-Transmission-in-US-States/figures/Ablation%20Study%20Comparison.png)
+
 
 > Visualizations available in full detail in `yonsei_project.ipynb`.
 
