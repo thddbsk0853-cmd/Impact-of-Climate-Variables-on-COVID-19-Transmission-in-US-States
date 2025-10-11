@@ -75,7 +75,7 @@ Preprocessing steps and code are fully detailed in the notebook.
 ## Visualization
 
 ### 1. Feature Importance by Category
-![Feature Importance by Category](Impact-of-Climate-Variables-on-COVID-19-Transmission-in-US-States/figures/Feature%20Importance%20by%20Category.png)
+![Feature Importance by Category](figures/Feature%20Importance%20by%20Category.png)
 
 ### 2. COVID-19 Cases and Key Intervention Points
 ![COVID-19 Cases and Key Intervention Points](Impact-of-Climate-Variables-on-COVID-19-Transmission-in-US-States/figures/COVID-19%20Cases%20and%20Key%20Intervention%20Points.png)
