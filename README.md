@@ -21,15 +21,6 @@ Climate signals exist but are weak compared to mobility, vaccination, and policy
 
 ---
 
-## Residual Diagnostics
-
-- Mean ≈ 0 (no bias)
-- Standard deviation: 45.80 cases per 100k
-- Skewness: 7.27 (extreme right skew)
-- Kurtosis: 144.73 (heavy tails)
-- Normality test: JB = 32,819,609, p < 0.001
----
-
 ## Key Results
 
 | Analysis           | Key Finding                                          |
@@ -38,6 +29,7 @@ Climate signals exist but are weak compared to mobility, vaccination, and policy
 | GAM                | Non-linear effects (p < 0.001) but modest R² ≈ 0.20  |
 | Ablation Study     | Removing climate increased RMSE by **+1.73 (+6.6%)** |
 | Feature Importance | Time (48.6%) > Mobility (27.3%) > Climate (15.8%)    |
+| Residual Diagnostics | Extreme non-normality (JB p < 0.001) - epidemic wave patterns |
 
 **Interpretation:**
 Climate variables contribute measurably to prediction but have limited practical impact relative to behavioral and policy dynamics.
