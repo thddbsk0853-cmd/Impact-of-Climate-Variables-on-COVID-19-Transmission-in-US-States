@@ -21,13 +21,22 @@ Climate signals exist but are weak compared to mobility, vaccination, and policy
 
 ---
 
+## Residual Diagnostics
+
+- Mean ≈ 0 (no bias)
+- Standard deviation: 45.80 cases per 100k
+- Skewness: 7.27 (extreme right skew)
+- Kurtosis: 144.73 (heavy tails)
+- Normality test: JB = 32,819,609, p < 0.001
+---
+
 ## Key Results
 
 | Analysis           | Key Finding                                          |
 | ------------------ | ---------------------------------------------------- |
 | Panel Regression   | Climate coefficients small and often insignificant   |
 | GAM                | Non-linear effects (p < 0.001) but modest R² ≈ 0.20  |
-| Ablation Study     | Removing climate increased RMSE by **+1.68 (+6.4%)** |
+| Ablation Study     | Removing climate increased RMSE by **+1.73 (+6.6%)** |
 | Feature Importance | Time (48.6%) > Mobility (27.3%) > Climate (15.8%)    |
 
 **Interpretation:**
@@ -37,18 +46,19 @@ Climate variables contribute measurably to prediction but have limited practical
 
 ## Datasets
 
-| Category       | Source                  | Description                                       |
-| -------------- | ----------------------- | ------------------------------------------------- |
-| COVID-19 Cases | Johns Hopkins CSSE      | Daily state-level confirmed cases                 |
-| Climate        | NASA POWER              | Temperature, humidity, and vapor pressure deficit |
-| Policy         | Oxford OxCGRT           | Government response indices                       |
-| Mobility       | Google Mobility Reports | Mobility by sector and baseline change (%)        |
-| Vaccination    | US CDC                  | Vaccination and booster rates                     |
-| Population     | US Census               | Population normalization (per 100k)               |
+| Category | Source | Description |
+|----------|--------|-------------|
+| COVID-19 Cases | Johns Hopkins CSSE | Daily state-level confirmed cases (per 100k population) |
+| Climate | NASA POWER | Temperature (T2M), Dew Point (T2MDEW), Relative Humidity (RH) |
+| Policy | Oxford OxCGRT | 4 policy indices (restrictions, contact tracing, events, travel) |
+| Mobility | Google Mobility Reports | 6 mobility categories (% change from baseline) |
+| Vaccination | US CDC | 4 vaccination rates (dose1, fully, booster, omicron bivalent) |
 
-All datasets were merged by date and state, standardized, and aligned for consistent time-series modeling.
-Preprocessing steps and code are fully detailed in the notebook.
-
+**Note**: 
+- COVID-19 cases were standardized per 100,000 population using US Census population data
+- Population data was used only for standardization and not included as a feature in the model
+- VPD (Vapor Pressure Deficit) was not directly fetched but calculated from T2M and T2MDEW using the Magnus formula for RH
+- 
 ---
 
 ## Methods Overview
@@ -68,7 +78,7 @@ Preprocessing steps and code are fully detailed in the notebook.
 * **Machine Learning (Random Forest):**
   Quantified variable importance and conducted ablation (with vs. without climate).
 * **Ablation Validation:**
-  RMSE increased by +6.4% without climate, confirming a modest but measurable contribution.
+  RMSE increased by +6.6% without climate, confirming a modest but measurable contribution.
 
 ---
 
@@ -87,7 +97,7 @@ Preprocessing steps and code are fully detailed in the notebook.
 ![Ablation Study Comparison](figures/Ablation%20Study%20Comparison.png)
 
 
-> Visualizations available in full detail in `yonsei_project.ipynb`.
+> Visualizations available in full detail in `Impact of Climate Variables on COVID-19 Transmission in US States.ipynb`.
 
 
 
@@ -100,6 +110,8 @@ Preprocessing steps and code are fully detailed in the notebook.
 3. **Temporal confounding:** Seasonal overlap with policy and variant changes
 4. **Causal inference:** Observational design limits causal conclusions
 5. **Non-stationarity:** Variant and behavioral shifts disrupt model stability
+6. **Computational constraints**: Hyperparameter tuning not performed due to computational limitations
+7. **Target variable**: 7-day rolling mean arbitrarily chosen (3, 14-day alternatives not tested)
 
 ---
 
@@ -123,7 +135,7 @@ project/
 * Google COVID-19 Mobility Reports
 * US CDC Vaccination Data
 * US Census Bureau Population Estimates
-* **Forecasting Epidemic Spread with Recurrent Graph Gate Fusion Transformers (2023)** – consulted as a recent reference on epidemic forecasting models
+* **<Forecasting Epidemic Spread with Recurrent Graph Gate Fusion Transformers>** – consulted as a recent reference on epidemic forecasting models
 
 ---
 
