@@ -127,7 +127,7 @@ project/
 * Google COVID-19 Mobility Reports
 * US CDC Vaccination Data
 * US Census Bureau Population Estimates
-* **<Forecasting Epidemic Spread with Recurrent Graph Gate Fusion Transformers>** – consulted as a recent reference on epidemic forecasting models
+* **Forecasting Epidemic Spread with Recurrent Graph Gate Fusion Transformers** – consulted as a recent reference on epidemic forecasting models
 
 ---
 
